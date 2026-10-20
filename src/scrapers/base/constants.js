@@ -33,4 +33,6 @@ export const PLATFORM_URL_PATTERNS = {
   GEMINI_CHAT: /^https:\/\/gemini\.google\.com\/(?!share\/)/,
   CLAUDE: /^https:\/\/claude\.ai\//,
   GEMINI_SHARED: /^https:\/\/gemini\.google\.com\/share\//,
+  DEEPSEEK: /^https:\/\/(chat\.)?deepseek\.com\//,
+  GROK: /^https:\/\/grok\.com\//,
 };

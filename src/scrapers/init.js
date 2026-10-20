@@ -7,6 +7,8 @@
 import { ChatGPTScraper } from './platforms/ChatGPTScraper.js';
 import { GeminiScraper } from './platforms/GeminiScraper.js';
 import { ClaudeScraper } from './platforms/ClaudeScraper.js';
+import { DeepseekScraper } from './platforms/DeepseekScraper.js';
+import { GrokScraper } from './platforms/GrokScraper.js';
 import { PLATFORM_URL_PATTERNS } from './base/constants.js';
 
 /**
@@ -36,6 +38,18 @@ const PLATFORM_PATTERNS = {
     name: 'Google Gemini (Shared)',
     ScraperClass: null, // TODO: Implement GeminiSharedScraper
     globalFunction: 'scrapeGeminiSharedChat',
+  },
+  DEEPSEEK: {
+    pattern: PLATFORM_URL_PATTERNS.DEEPSEEK,
+    name: 'DeepSeek (Active Chat)',
+    ScraperClass: DeepseekScraper,
+    globalFunction: 'scrapeDeepseek',
+  },
+  GROK: {
+    pattern: PLATFORM_URL_PATTERNS.GROK,
+    name: 'Grok (Active Chat)',
+    ScraperClass: GrokScraper,
+    globalFunction: 'scrapeGrok',
   },
 };
 
