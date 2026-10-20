@@ -20,6 +20,8 @@ function getCurrentPlatform() {
   if (href.includes('chatgpt.com') || href.includes('chat.openai.com')) return 'chatgpt';
   if (href.includes('claude.ai')) return 'claude';
   if (href.includes('gemini.google.com')) return 'gemini';
+  if (href.includes('deepseek.com')) return 'deepseek';
+  if (href.includes('grok.com')) return 'grok';
   return 'unknown';
 }
 
@@ -162,6 +164,29 @@ function getSelectionCandidates() {
       rows.push({ node, role: 'user', turnIndex: idx });
     });
     Array.from(document.querySelectorAll('model-response')).forEach((node, idx) => {
+      rows.push({ node, role: 'model', turnIndex: idx });
+    });
+    return rows;
+  }
+
+
+  if (platform === 'deepseek') {
+    const rows = [];
+    Array.from(document.querySelectorAll('[data-role="user"]')).forEach((node, idx) => {
+      rows.push({ node, role: 'user', turnIndex: idx });
+    });
+    Array.from(document.querySelectorAll('[data-role="assistant"]')).forEach((node, idx) => {
+      rows.push({ node, role: 'model', turnIndex: idx });
+    });
+    return rows;
+  }
+
+  if (platform === 'grok') {
+    const rows = [];
+    Array.from(document.querySelectorAll('[data-role="user"]')).forEach((node, idx) => {
+      rows.push({ node, role: 'user', turnIndex: idx });
+    });
+    Array.from(document.querySelectorAll('[data-role="model"]')).forEach((node, idx) => {
       rows.push({ node, role: 'model', turnIndex: idx });
     });
     return rows;
